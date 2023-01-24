@@ -1,0 +1,1 @@
+const itern = require('../lib/Intern');
