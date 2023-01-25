@@ -16,6 +16,7 @@ const genManager = function (manager) {
 }
 
 genHTML = (data) => {
+    
 }
 
 const genPage = function (emCards) {
