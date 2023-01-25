@@ -132,19 +132,19 @@ const employeeQuest = [
     },
 
     {
-    type: 'input',
-    name: 'school',
-    message: "What is the intern's school name?",
-    when: (input) => input.role === 'Intern',
-    validate: isInput => {
-        if(isInput){
-            return true;
-        }else{
-            console.log("Enter intern's school.");
-            return false;
+        type: 'input',
+        name: 'school',
+        message: "What is the intern's school name?",
+        when: (input) => input.role === 'Intern',
+        validate: isInput => {
+            if(isInput){
+                return true;
+            }else{
+                console.log("Enter intern's school.");
+                return false;
+            }
         }
     }
-}
 ];
 
 const teamArray = [];
