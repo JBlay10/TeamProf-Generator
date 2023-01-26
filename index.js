@@ -172,12 +172,12 @@ const addManager = () => {
 
 const addEmployee = () => {
     inquirer.prompt(employeeQuest).then(employeeInfo => {
-
         let employee;
 
         if(employeeInfo.role === "Engineer") {
-            employee = new Engineer (employeeInfo.name, employeeInfo.id, employeeInfo.email, employeeInfo.github);
 
+            employee = new Engineer (employeeInfo.name, employeeInfo.id, employeeInfo.email, employeeInfo.github);
+            
         }else if(employeeInfo.role === "Intern") {
             employee = new Intern (employeeInfo.name, employeeInfo.id, employeeInfo.email, employeeInfo.school)
         }

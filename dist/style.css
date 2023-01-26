@@ -1,0 +1,19 @@
+#navbar {
+    background-color: whitesmoke;
+    font-size: 75px;
+}
+
+.card-header {
+    background-color: lightgreen;
+}
+
+.card-body {
+    background-color: lightgrey;
+    font-size: 0.9rem;
+}
+
+.container {
+    justify-content: space-evenly;
+    display: flex;
+
+}

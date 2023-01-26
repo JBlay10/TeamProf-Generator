@@ -1,22 +1,91 @@
 const genIntern = function (intern) {
     return`
+    <div class="col mt-3">
+    <div class="card h-150">
+        <div class="card-header">
+            <h3>${intern.name}</h3>
+            <h5>Intern</h5><i class="fa-sharp fa-solid fa-graduation-cap"></i>
+        </div>
+
+        <div class="card-body">
+            <p class="id">ID: ${intern.id}</p>
+            <p class="email">Email: <a href="mailto: ${intern.email}">${intern.email}</a></p>
+            <p class="school">School: ${intern.school}</p>
+        </div>
+    </div>
+</div>
     `;
 }
 
 const genEngineer = function (engineer) {
     return`
-    
+    <div class="col mt-3">
+    <div class="card h-150">
+        <div class="card-header">
+            <h3>${engineer.name}</h3>
+            <h5>Engineer</h5><i class="fa-solid fa-laptop"></i>
+        </div>
+
+        <div class="card-body">
+            <p class="id">ID: ${engineer.id}</p>
+            <p class="email">Email: <a href="mailto: ${engineer.email}">${engineer.email}</a></p>
+            <p class="github">Github: <a href="https://github.com/${engineer.github}">${engineer.github}</a></p>
+        </div>
+    </div>
+</div>
     `;
 }
 
 const genManager = function (manager) {
     return`
-    
+    <div class="col mt-3">
+    <div class="card h-150">
+        <div class="card-header">
+            <h3>${manager.name}</h3>
+            <h5>Manager</h5><i class="fa-regular fa-clipboard"></i>
+        </div>
+
+        <div class="card-body">
+            <p class="id">ID: ${manager.id}</p>
+            <p class="email">Email: <a href="mailto: ${manager.email}">${manager.email}</a></p>
+            <p class="officeNumber">Office Number: ${manager.officeNumber}</p>
+        </div>
+    </div>
+</div>
     `;
 }
 
 genHTML = (data) => {
-    
+    pageArray = [];
+
+    for(let i = 0; i < data.length; i++){
+        const employee = data[i];
+        const role = employee.getRole();
+
+
+        if(role === "Manager") {
+            const managerCard = genManager(employee)
+
+            pageArray.push(managerCard)
+        }
+
+        if(role === "Intern") {
+            const internCard = genIntern(employee)
+
+            pageArray.push(internCard)
+        }
+
+        if(role === "Engineer") {
+            const engineerCard = genEngineer(employee)
+
+            pageArray.push(engineerCard)
+        }
+    }
+
+    const employeeCards = pageArray.join('')
+
+    const generateTeam = genPage(employeeCards);
+    return generateTeam;
 }
 
 const genPage = function (emCards) {
